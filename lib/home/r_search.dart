@@ -1,3 +1,4 @@
+import 'package:e_learning/home/section.dart';
 import "package:flutter/material.dart";
 
 class ResSearch extends StatelessWidget{
@@ -17,49 +18,10 @@ class ResSearch extends StatelessWidget{
           ],
         ),
       ),
-      Row(
-        children: [
-          Image.asset("images/s1.png"),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Column( 
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children:[
-                Text("Adobe illustrator for all beginner artist"),
-                Text("Samuel Doe"),
-                Row( 
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          Icons.person_outline,
-                          color: Colors.grey,),
-                        Text(
-                          "4k student",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey
-                          )
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 19),
-                      child: Row(
-                        children: [
-                          Image.asset("images/icons/star.png"),
-                          Text("4.7"),
-                        ],
-                      ),
-                    ),
-
-                  ]
-                )
-              ]),
-          )
-        ],)
+      ListItem(image: "images/s1.png", title: "Adobe illustrator for all beginner artist", author: "Samuel Doe"),
+      ListItem(image: "images/s2.png", title: "Digital illustration technique for procrete", author: "Sarrah Morry"),
+      ListItem(image: "images/s3.png", title: "Learn how to draw cartoon face in easy way", author: "Sarrah Morry"),
+      ListItem(image: "images/s4.png", title: "Sketch book essential for everyone", author: "Sarrah Morry"),
     ],
   );
  } 

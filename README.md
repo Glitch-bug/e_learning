@@ -1,6 +1,7 @@
 # e_learning
 
 A new Flutter project.
+To sign in use username 'jessie' and password 'password' in the corresponding text fields.
 
 ## Getting Started
 

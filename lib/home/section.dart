@@ -350,3 +350,80 @@ class TImage extends StatelessWidget {
     );
   }
 }
+
+
+class ListItem extends StatelessWidget{
+  String image;
+  String title;
+  String author;
+
+  ListItem({super.key, required this.image, required this.title, required this.author});
+
+  @override 
+  Widget build(BuildContext context){
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Row(
+          children: [
+            Image.asset(image),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: SizedBox(
+                width: 243,
+                child: Column( 
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children:[
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      )
+                    ),
+                    Text(author),
+                    Row( 
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Icon(
+                              Icons.person_outline,
+                              color: Colors.grey,),
+                            Text(
+                              "4k student",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey
+                              )
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 19),
+                          child: Row(
+                            children: [
+                              Image.asset("images/icons/star.png"),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  "4.7",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey
+                                  )
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ]
+                    )
+                  ]
+                ),
+              ),
+            )
+          ],
+        ),
+    );
+  }
+}
