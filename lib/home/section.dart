@@ -370,8 +370,10 @@ class ListItem extends StatelessWidget{
               padding: const EdgeInsets.only(left: 10),
               child: SizedBox(
                 width: 243,
+                height: 90,
                 child: Column( 
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children:[
                     Text(
                       title,
@@ -426,4 +428,72 @@ class ListItem extends StatelessWidget{
         ),
     );
   }
+}
+
+class Selection extends StatefulWidget{
+  String label;
+  List <String> selections;
+
+
+  Selection({super.key,required this.label,required this.selections});
+
+  
+  
+ 
+  @override
+  State<Selection> createState() => _SelectionState();
+}
+
+class _SelectionState extends State<Selection> {
+
+
+  late List state; 
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    state = List.generate(widget.selections.length, (index) {return false;});
+  }
+ 
+
+ @override 
+ Widget build(BuildContext context){
+  return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+          Text(
+            widget.label,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            )
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: List.generate(widget.selections.length, (i) {
+              return SizedBox(
+                height: 30,
+                child: CheckboxListTile( 
+                  title: Text(widget.selections[i]),
+                  contentPadding: EdgeInsets.zero,
+                  value: state[i],
+                  onChanged: (newValue){
+                    setState(() {
+                      state[i] = newValue;
+                    });              
+                  },
+                  controlAffinity: ListTileControlAffinity.leading,
+                ),
+              );
+            })
+          ),
+        ]
+      )
+    );
+ }
+ 
 }

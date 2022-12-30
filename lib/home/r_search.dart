@@ -1,5 +1,7 @@
 import 'package:e_learning/home/section.dart';
 import "package:flutter/material.dart";
+import "package:e_learning/home/f_search.dart";
+
 
 class ResSearch extends StatelessWidget{
  const ResSearch({super.key});
@@ -14,7 +16,14 @@ class ResSearch extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text("Your search result"),
-            IconButton(onPressed: (){}, icon: Image.asset("images/icons/setting.png"))
+            IconButton(onPressed: (){
+              Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (BuildContext context){
+                    return const FiltSearch();
+                  })
+              );
+            }, icon: Image.asset("images/icons/setting.png"))
           ],
         ),
       ),
