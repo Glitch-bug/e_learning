@@ -497,3 +497,64 @@ class _SelectionState extends State<Selection> {
  }
  
 }
+
+class ListedProfile extends StatelessWidget {
+  String image;
+  String username;
+  String handle;
+  bool follows;
+  ListedProfile({super.key, required this.image, required this.username, required this.handle, required this.follows});
+
+  @override 
+  Widget build(BuildContext context){
+    return Padding(
+      padding: const EdgeInsets.only(bottom:20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(image),
+          SizedBox(
+            width: 190,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+                Text(
+                  username,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    fontSize:18,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  "@$handle",
+                  style: const TextStyle(
+                    fontSize:12
+                  ),
+                ),
+              ]
+            ),
+          ),
+          ElevatedButton(
+            onPressed: (){},
+            style: ElevatedButton.styleFrom(
+              elevation: 0,
+              minimumSize: const Size(77, 41),
+              backgroundColor: const Color(0xffEDEEF0),
+            ),
+            child: Text(
+              (!follows)?
+              "Follow": "View",
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              )
+
+            ) 
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:e_learning/splash_sign/splash.dart';
 import 'package:e_learning/forgotten/reset_pass.dart';
 import 'package:e_learning/home/frame.dart';
+import 'package:e_learning/home/teachers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Frame(),
+      home: const Teachers(),
     );
   }
 }
