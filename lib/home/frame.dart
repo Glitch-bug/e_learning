@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:e_learning/home/home.dart";
 import "package:e_learning/home/search.dart";
+import "package:e_learning/saved/saved.dart";
 
 class Frame extends StatefulWidget{
   const Frame({super.key});
@@ -11,9 +12,10 @@ class Frame extends StatefulWidget{
 
 class _FrameState extends State<Frame> {
   int currentPage = 0;
-  List<Widget> pages = const [
-    Home(),
-    Search()
+  List<Widget> pages = [
+    const Home(),
+    const Search(),
+    Saved()
   ];
 
   @override 

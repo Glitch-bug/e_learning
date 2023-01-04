@@ -558,3 +558,30 @@ class ListedProfile extends StatelessWidget {
     );
   }
 }
+
+class GreyButton extends StatelessWidget{
+  String text;
+  double? width;
+  double? height;
+
+  GreyButton({super.key, required this.text, this.width, this.height});
+
+  @override
+  Widget build(BuildContext context){
+    Size size = MediaQuery.of(context).size;
+    return ElevatedButton(
+      onPressed: (){},
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        minimumSize: Size(size.width * 0.045, size.height * 0.055),
+        backgroundColor: const Color(0xffEDEEF0),
+      ), 
+        child: Text(
+        text,
+        style: const TextStyle( 
+          color:Colors.black
+          )
+        ),
+    );
+  }
+}
