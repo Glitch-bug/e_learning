@@ -71,7 +71,7 @@ class Popul extends StatelessWidget{
 
   Widget build(BuildContext context){
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child:Column(
         children: [
           const Padding(
@@ -92,7 +92,8 @@ class Popul extends StatelessWidget{
             padding: const EdgeInsets.only(top:50),
             child: GreyButton(text: "Add more",)
           ),
-        ],)
+        ],
+      )
     );
   }
 }

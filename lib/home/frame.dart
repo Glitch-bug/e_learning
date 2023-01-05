@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:e_learning/home/home.dart";
 import "package:e_learning/home/search.dart";
 import "package:e_learning/saved/saved.dart";
+import "package:e_learning/student/student.dart";
 
 class Frame extends StatefulWidget{
   const Frame({super.key});
@@ -15,7 +16,8 @@ class _FrameState extends State<Frame> {
   List<Widget> pages = [
     const Home(),
     const Search(),
-    Saved()
+    Saved(),
+    Student(),
   ];
 
   @override 
@@ -24,10 +26,10 @@ class _FrameState extends State<Frame> {
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
         destinations: [
-          NavigationDestination(icon: Image.asset("images/icons/Some.png"), label: ""),
-          NavigationDestination(icon: Image.asset("images/icons/Search.png"), label: "",),
-          NavigationDestination(icon: Image.asset("images/icons/Bookmark.png"), label: "",),
-          NavigationDestination(icon: Image.asset("images/icons/User.png"), label: "",)
+          NavigationDestination(icon: Image.asset("images/icons/Some.png"), label: "Home"),
+          NavigationDestination(icon: Image.asset("images/icons/Search.png"), label: "Search",),
+          NavigationDestination(icon: Image.asset("images/icons/Bookmark.png"), label: "Saved",),
+          NavigationDestination(icon: Image.asset("images/icons/User.png"), label: "Profile",)
         ],
         onDestinationSelected: (int index) {
           setState(() {
