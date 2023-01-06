@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:e_learning/home/section.dart';
+import 'package:e_learning/student/settings/settings.dart';
 
 class Student extends StatefulWidget{
   int pages = 0;
@@ -41,11 +42,21 @@ class _StudentState extends State<Student>{
                   ),
                 ),
               ),
-              const Positioned.fill(
+              Positioned.fill(
                 right: 20,
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: Icon(Icons.settings_outlined, color: Colors.white,)
+                  child: IconButton(
+                    onPressed: (){
+                      setState((){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (BuildContext context){
+                            return const Settings();
+                          }
+                        ));
+                      });
+                    },
+                    icon: const Icon(Icons.settings_outlined, color: Colors.white,)),
                 )
               )
             ],
@@ -91,9 +102,6 @@ class _StudentState extends State<Student>{
             child: SizedBox(
               width: 282,
               height: 56,
-              // decoration: BoxDecoration(
-              //   border: Border(bottom: ),
-              // ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
