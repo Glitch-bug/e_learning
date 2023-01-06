@@ -9,6 +9,7 @@ class Profile extends StatefulWidget{
 }
 class _Profile extends State<Profile>{
   final formKey = GlobalKey<FormState>();
+  
   @override 
   Widget build(BuildContext context){
     return Scaffold(
@@ -57,6 +58,10 @@ class _Profile extends State<Profile>{
             Form(
               key: formKey,
               child: TextFormField(
+                decoration: const InputDecoration(
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  labelText:"new username"
+                ),
                 validator: ((value) {
                   if (value == null || value.isEmpty) {
                     return "Please enter some text";

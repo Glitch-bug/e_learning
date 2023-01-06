@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:e_learning/home/section.dart';
 import 'package:e_learning/student/settings/settings.dart';
+import 'package:e_learning/student/settings/profile.dart';
+
 
 class Student extends StatefulWidget{
   int pages = 0;

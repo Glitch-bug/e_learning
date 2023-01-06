@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:e_learning/home/section.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:e_learning/student/settings/profile.dart';
+import 'package:e_learning/student/settings/password.dart';
 
 class Settings extends StatefulWidget{
   const Settings({super.key});
@@ -12,6 +13,7 @@ class Settings extends StatefulWidget{
 
 class _SettingsState extends State<Settings> {
   bool tog = true;
+  bool owner = true;
   @override 
   Widget build(BuildContext context){
     Size size = MediaQuery.of(context).size;
@@ -232,7 +234,12 @@ class _SettingsState extends State<Settings> {
                       ),   
                     ],
                   ),
-                  GreyButton(text:"manage", effect: (){},)
+                  GreyButton(text:"manage", effect: (){
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (BuildContext context){
+                        return const PassChange();
+                      }));
+                  },)
                   ],
                 ),
               ),
@@ -294,11 +301,13 @@ class _SettingsState extends State<Settings> {
           ),
         ),
         TextButton(
-          onPressed: (){}, 
+          onPressed: (){
+            owner = !owner;
+          }, 
           child: const Text(
             "sign out",
             style: TextStyle(
-              fontSize: 20, 
+              fontSize: 17, 
               color: Color(0xff265AE8),
             )
           ) 
