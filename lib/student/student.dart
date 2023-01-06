@@ -14,7 +14,7 @@ class Student extends StatefulWidget{
 }
 
 class _StudentState extends State<Student>{
- 
+  bool owner = false;
   @override 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;  
@@ -50,15 +50,16 @@ class _StudentState extends State<Student>{
                   alignment: Alignment.centerRight,
                   child: IconButton(
                     onPressed: (){
+                      (owner)?
                       setState((){
                         Navigator.push(context, MaterialPageRoute(
                           builder: (BuildContext context){
                             return const Settings();
                           }
                         ));
-                      });
+                      }):(){};
                     },
-                    icon: const Icon(Icons.settings_outlined, color: Colors.white,)),
+                    icon: (owner)? const Icon(Icons.settings_outlined, color: Colors.white,): Image.asset("images/icons/pre_crown.png")),
                 )
               )
             ],
