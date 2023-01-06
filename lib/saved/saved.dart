@@ -57,7 +57,7 @@ class Empty extends StatelessWidget{
           ),
           Padding(
             padding: const EdgeInsets.only(top:50),
-            child: GreyButton(text: "Recommended",)
+            child: GreyButton(text: "Recommended", effect: (){},)
           ), 
             
         ],
@@ -90,7 +90,7 @@ class Popul extends StatelessWidget{
           ListItem(image: "images/s4.png", title: "Sketchbook essential for everyone", author: "Sarah Morry"),
           Padding(
             padding: const EdgeInsets.only(top:50),
-            child: GreyButton(text: "Add more",)
+            child: GreyButton(text: "Add more", effect: (){},)
           ),
         ],
       )

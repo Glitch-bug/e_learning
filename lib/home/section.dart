@@ -561,16 +561,15 @@ class ListedProfile extends StatelessWidget {
 
 class GreyButton extends StatelessWidget{
   String text;
-  double? width;
-  double? height;
+  VoidCallback effect;
 
-  GreyButton({super.key, required this.text, this.width, this.height});
+  GreyButton({super.key, required this.text, required this.effect});
 
   @override
   Widget build(BuildContext context){
     Size size = MediaQuery.of(context).size;
     return ElevatedButton(
-      onPressed: (){},
+      onPressed: effect,
       style: ElevatedButton.styleFrom(
         elevation: 0,
         minimumSize: Size(size.width * 0.045, size.height * 0.055),

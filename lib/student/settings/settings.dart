@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:e_learning/home/section.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:e_learning/student/settings/profile.dart';
 
 class Settings extends StatefulWidget{
   const Settings({super.key});
@@ -77,7 +78,7 @@ class _SettingsState extends State<Settings> {
                       ),   
                     ],
                   ),
-                  GreyButton(text:"upgrade")
+                  GreyButton(text:"upgrade", effect:(){})
                   ],
                 ),
               ),
@@ -121,7 +122,16 @@ class _SettingsState extends State<Settings> {
                       ),   
                     ],
                   ),
-                  GreyButton(text:"manage")
+                  GreyButton(
+                    text:"manage",
+                    effect: (){
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (BuildContext context){
+                          return const Profile();
+                        })
+                      );
+                    },
+                  )
                   ],
                 ),
               ),
@@ -222,7 +232,7 @@ class _SettingsState extends State<Settings> {
                       ),   
                     ],
                   ),
-                  GreyButton(text:"manage")
+                  GreyButton(text:"manage", effect: (){},)
                   ],
                 ),
               ),
