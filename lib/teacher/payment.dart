@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-
+import 'package:e_learning/teacher/card.dart';
 
 class Payment extends StatefulWidget {
   const Payment({super.key});
@@ -143,7 +143,15 @@ class _PaymentState extends State<Payment> {
             ),
             const Spacer(flex: 13,),
             ElevatedButton(
-              onPressed: (){}, 
+              onPressed: (){
+                if (month || yr){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (BuildContext context){
+                      return  const PCard();
+                    }
+                  ));
+                }
+              }, 
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(size.width, size.height * 0.07),
                 backgroundColor: const Color(0xff265AE8),
