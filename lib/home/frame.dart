@@ -24,6 +24,7 @@ class _FrameState extends State<Frame> {
   Widget build(BuildContext context){
     return Scaffold(
       body: pages[currentPage],
+      
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Image.asset("images/icons/Some.png"), label: "Home"),

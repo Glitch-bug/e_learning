@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import "package:e_learning/home/section.dart";
+import "package:e_learning/course/frame.dart";
+import "package:e_learning/teacher/teacher.dart";
 
 class Home extends StatelessWidget{
   const Home({super.key});
@@ -70,11 +72,11 @@ class Home extends StatelessWidget{
               ),
               Padding(
                 padding: const EdgeInsets.only(top:30),
-                child: Section(heading:"Most watched category this month", image_1: "images/Group 1.png", image_2:"images/Group 2.png", width: 190, title: "HTML, CSS for noob and nerds", descr: "Sayef Mahmud, PixelCo", title1: "Modern Interior design for beginner!", descr1: "Samantha Rossye", badge:"HOT", badge1:"NEW", rate:4.5, rate1:4.35 ),
+                child: Section(heading:"Most watched category this month", image_1: "images/Group 1.png", image_2:"images/Group 2.png", width: 190, title: "HTML, CSS for noob and nerds", descr: "Sayef Mahmud, PixelCo", title1: "Modern Interior design for beginner!", descr1: "Samantha Rossye", badge:"HOT", badge1:"NEW", rate:4.5, rate1:4.35, loc: const CourseFrame(), loc1:  const CourseFrame(),),
               ),
               Padding(
                 padding: const EdgeInsets.only(top:30),
-                child: Section(heading:"Our top popular teacher this month", image_1: "images/Teacher 1.png", image_2:"images/Teacher 2.png", width: 195,),
+                child: Section(heading:"Our top popular teacher this month", image_1: "images/Teacher 1.png", image_2:"images/Teacher 2.png", width: 195, loc: Teacher()),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical:40),
