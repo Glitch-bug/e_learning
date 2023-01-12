@@ -626,3 +626,93 @@ class GreyButton extends StatelessWidget{
     );
   }
 }
+
+
+class Comment extends StatelessWidget{
+  String location;
+  String handle;
+  String time;
+  String comment;
+  int? likes;
+  int? replies;
+  Comment({super.key, required this.location, required this.handle, required this.time, required this.comment, this.likes, this.replies});
+
+  @override 
+  Widget build(BuildContext context){
+    Size size = MediaQuery.of(context).size;
+    return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(location),
+          const Spacer(),
+          SizedBox(
+            width: 282,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "@$handle",
+                  style: const TextStyle(
+                    fontSize:15,
+                  )
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.005),
+                  child: Text(
+                    time,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color:Color(0xff9FA3A9))
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.01),
+                  child: Text(
+                    comment,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color:Color(0xff282F3E)
+                    )
+                  ),
+                ),
+                (likes != null)?
+                Padding(
+                  padding: EdgeInsets.only(top:size.height* 0.01),
+                  child: Row(children: [
+                    const Text(
+                      "Liked",
+                      style: TextStyle(
+                        color: Color(0xff265AE8)
+                      )
+                    ),
+                    const Spacer(),                  
+                    const Text(
+                      "Reply",
+                      style :TextStyle(
+                        color: Color(0xff585D69)
+                        )
+                    ),
+                    const Spacer(flex: 9,),
+                    Image.asset("images/icons/like.png"),
+                    Text(" $likes")
+                  ],),
+                ): Container(),
+                (replies != null)?
+                TextButton(
+                  onPressed: (){},
+                  child: Text(
+                    "view $replies replies",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff265AE8),
+                    )
+                  ),
+                ):Container()
+              ],
+            ),
+          ),
+          const Spacer()
+        ]
+    );
+  }
+}

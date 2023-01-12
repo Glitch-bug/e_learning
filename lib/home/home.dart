@@ -72,7 +72,7 @@ class Home extends StatelessWidget{
               ),
               Padding(
                 padding: const EdgeInsets.only(top:30),
-                child: Section(heading:"Most watched category this month", image_1: "images/Group 1.png", image_2:"images/Group 2.png", width: 190, title: "HTML, CSS for noob and nerds", descr: "Sayef Mahmud, PixelCo", title1: "Modern Interior design for beginner!", descr1: "Samantha Rossye", badge:"HOT", badge1:"NEW", rate:4.5, rate1:4.35, loc: const CourseFrame(), loc1:  const CourseFrame(),),
+                child: Section(heading:"Most watched category this month", image_1: "images/Group 1.png", image_2:"images/Group 2.png", width: 190, title: "HTML, CSS for noob and nerds", descr: "Sayef Mahmud, PixelCo", title1: "Modern Interior design for beginner!", descr1: "Samantha Rossye", badge:"HOT", badge1:"NEW", rate:4.5, rate1:4.35, loc: CourseFrame(), loc1:  CourseFrame(),),
               ),
               Padding(
                 padding: const EdgeInsets.only(top:30),
