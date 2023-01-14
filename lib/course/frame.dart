@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:e_learning/home/section.dart";
+import "package:e_learning/course/replies.dart";
 
 class CourseFrame extends StatefulWidget{
   int index = 0;
@@ -434,11 +435,11 @@ class Overview extends StatelessWidget{
           ),
           Padding(
             padding: EdgeInsets.only(top: osize.height * 0.03),
-            child: Comment(handle:"mouni", time: "11 mins ago   .   Student", comment: "How to get better at line? I am really stuck in this step!", likes: 21, replies: 1, location: 'images/c3.png',),
+            child: Comment(handle:"mouni", time: "11 mins ago   .   Student", comment: "How to get better at line? I am really stuck in this step!", likes: 21, replies: 1, location: 'images/c3.png', rpage: const Replies()),
           ),
           Padding(
             padding: EdgeInsets.only(top: osize.height * 0.03),
-            child: Comment(location: "images/c4.png", handle: "simon", time: "31 mins ago   .   Student", comment: "Can you tell me how can i upload img to cloud saas?", likes: 10,)
+            child: Comment(location: "images/c4.png", handle: "simon", time: "31 mins ago   .   Student", comment: "Can you tell me how can i upload img to cloud saas?", likes: 10, rpage: const Replies())
           ),
         ]
       ),
@@ -451,10 +452,60 @@ class Lessons extends StatelessWidget{
 
   @override 
   Widget build(BuildContext context){
-    return Container(
-      width: 10,
-      height: 10,
-      decoration: const BoxDecoration(color: Colors.red),
+    Size size = MediaQuery.of(context).size;
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+        Lesson(
+          location:"images/l1.png",
+          title: "Introduction to cimics drawing course",
+          count: 1,
+          content: "Eu lacus ornare sollicitudin dolor mauris fbib fen dum tritique massa euiod suspe mauris nunc ac felis orcieu soft lectus nibh vulputate urna ut sed neque",
+        ),
+        Lesson(
+          location:"images/l2.png",
+          title: "Nulla sit mauris nunc of suscipit",
+          count: 2,
+          content: "Eu lacus ornare sollicitudin dolor mauris fbib fen dum tritique massa euiod suspe mauris nunc ac felis orciceu soft lectus nibh vulputate urna ut sed neque",
+        ),
+        Lesson(
+          location:"images/l3.png",
+          title: "Tellus elementum jonys commodo nibh ",
+          count: 3,
+          content: "Eu lacus ornare sollicitudin dolor mauris fbib fen dum tritique massa euiod suspe mauris nunc ac felis orciceu soft lectus nibh vulputate urna ut sed neque",
+        ),
+        Lesson(
+          location:"images/l1.png",
+          title: "Et semper vivamus sceler isq ue purus velit",
+          count: 4,
+          content: "Eu lacus ornare sollicitudin dolor mauris fbib fen dum tritique massa euiod suspe mauris nunc ac felis orciceu soft lectus nibh vulputate urna ut sed neque",
+        ),
+        Lesson(
+          location:"images/l4.png",
+          title: "Aliquam praesent velit pellentesque donec",
+          count: 5,
+          content: "Eu lacus ornare sollicitudin dolor mauris fbib fen dum tritique massa euiod suspe mauris nunc ac felis orciceu soft lectus nibh vulputate urna ut sed neque",
+        ),
+        Lesson(
+          location:"images/l5.png",
+          title: "Lobortis gravida adipg",
+          count: 6,
+          content: "Eu lacus ornare sollicitudin dolor mauris fbib fen dum tritique massa euiod suspe mauris nunc ac felis orciceu soft lectus nibh vulputate urna ut sed neque",
+        ),
+        const Text(
+          "Resources for download",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+          textAlign: TextAlign.left,
+        ),
+        Resource(ext: "img", title: "practice class sketches", fsize:4, color: const Color(0xffFF6363)),
+        Resource(ext: "pdf", title: "Home work sheets", fsize:2, color: const Color(0xffA0D7FF)),
+        Resource(ext: "pdf", title: "Home work sheets", fsize:2, color: const Color(0xffA0D7FF))
+      ],),
     );
   }
 }

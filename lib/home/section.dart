@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-
+import "package:e_learning/course/project.dart";
 
 class Section extends StatelessWidget{
   String heading;
@@ -633,9 +633,11 @@ class Comment extends StatelessWidget{
   String handle;
   String time;
   String comment;
+  Widget? rpage;
   int? likes;
   int? replies;
-  Comment({super.key, required this.location, required this.handle, required this.time, required this.comment, this.likes, this.replies});
+  bool? teach;
+  Comment({super.key, required this.location, required this.handle, required this.time, required this.comment, this.likes, this.replies, this.rpage, this.teach});
 
   @override 
   Widget build(BuildContext context){
@@ -650,11 +652,34 @@ class Comment extends StatelessWidget{
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "@$handle",
-                  style: const TextStyle(
-                    fontSize:15,
-                  )
+                Row(
+                  children: [
+                    Text(
+                      "@$handle",
+                      style: const TextStyle(
+                        fontSize:15,
+                      )
+                    ),
+                    const Spacer(),
+                    (teach != null)?
+                    Container(
+                      height: size.height * 0.02,
+                      width: size.width * 0.15,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffF97066),
+                        borderRadius: BorderRadius.circular(3)
+                      ),
+                      child: const Text(
+                        "teacher",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ):Container(),
+                    Spacer(),
+                  ],
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: size.height * 0.005),
@@ -686,11 +711,21 @@ class Comment extends StatelessWidget{
                       )
                     ),
                     const Spacer(),                  
-                    const Text(
-                      "Reply",
-                      style :TextStyle(
-                        color: Color(0xff585D69)
-                        )
+                    GestureDetector(
+                      onTap:(rpage != null)? (){
+                        
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (BuildContext context){
+                            return rpage!;
+                          })
+                        );
+                      }: (){},
+                      child: const Text(
+                        "Reply",
+                        style :TextStyle(
+                          color: Color(0xff585D69)
+                          )
+                      ),
                     ),
                     const Spacer(flex: 9,),
                     Image.asset("images/icons/like.png"),
@@ -713,6 +748,145 @@ class Comment extends StatelessWidget{
           ),
           const Spacer()
         ]
+    );
+  }
+}
+
+class Lesson extends StatelessWidget{
+  String location;
+  String title;
+  int count;
+  String? content;
+  Lesson({super.key, required this.location, required this.title, required this.count, this.content});
+
+  @override
+  Widget build(BuildContext context){
+    Size size = MediaQuery.of(context).size;
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(
+            builder: (BuildContext context){
+              return Project();
+            })
+          );
+        },
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(location)
+                ), 
+                SizedBox(
+                  width: size.width - 180,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),),
+                      Padding(
+                        padding: EdgeInsets.only(top:size.height*0.015),
+                        child: Text(
+                          "Lesson $count",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff585D69)
+                          )
+                        ),
+                      )
+                  ],),
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top:size.height*0.023),
+              child: SizedBox(
+                width: size.width - 40,
+                child:Text(
+                  content ?? "",
+                  style: const TextStyle(
+                    color: Color(0xff70747E))
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Resource extends StatelessWidget{
+  String ext;
+  String title;
+  int fsize;
+  Color? color;
+
+  Resource({super.key, required this.ext, required this.title, required this.fsize, required this.color});
+  
+  @override
+  Widget build(BuildContext context){
+    Size size = MediaQuery.of(context).size;
+    return Padding(
+      padding:  EdgeInsets.only(top:size.height*0.023),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [        
+          Row(
+            children: [
+              Container(
+                height: size.width * 0.11,
+                width: size.width * 0.11,
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(5)
+                ),
+                child: Center(
+                  child: Text(
+                    ".$ext",
+                    style: const TextStyle(
+                      color: Colors.white,
+                    )
+                  ),)
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: size.width * 0.03),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500
+                      )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: size.height * 0.01 ),
+                      child: Text(
+                        ".$ext  ${fsize}Mb",
+                        style: const TextStyle(
+                          fontSize: 11,
+                          color: Color(0xff888C94)
+                        )
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+          Image.asset("images/icons/cloudd.png"),        
+        ],
+      ),
     );
   }
 }
