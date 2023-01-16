@@ -23,7 +23,7 @@ class Add  extends StatelessWidget{
           TextFormField(
             decoration: const InputDecoration(
               label:Text(
-                "Project Name",
+                "Project name",
                 style: TextStyle(
                   color: Colors.black,
                 ),
@@ -58,14 +58,14 @@ class Add  extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Image.asset("images/icons/add-square.png"),
-                Spacer(),
+                const Spacer(),
                 const Text(
                   "add from gallery",
                   style: TextStyle(
                     color:Colors.black,
                   )
                 ),
-                Spacer()
+                const Spacer()
               ],
               )
             )

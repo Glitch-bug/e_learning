@@ -49,7 +49,17 @@ class _CourseFrameState extends State<CourseFrame> {
                 ),
               ),
             ),
-            Stack(children: [Image.asset("images/Playback.png", width: size.width, fit: BoxFit.fitWidth,), ]),
+            Stack(
+              children: [
+                Image.asset("images/Playback.png", width: size.width, fit: BoxFit.fitWidth,), 
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: IconButton(onPressed:(){}, icon: Image.asset("images/icons/play.png"))
+                  )
+                )
+              ]
+            ),
             SizedBox(
               width: 250,
               child: Padding(

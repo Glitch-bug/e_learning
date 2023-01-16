@@ -13,23 +13,36 @@ class Details  extends StatelessWidget{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_ios),),
+            IconButton(onPressed: (){
+              Navigator.pop(context);
+            }, icon: const Icon(Icons.arrow_back_ios),),
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset("images/Project1.png"),
+              child: Stack(
+                children: [
+                  Image.asset("images/Project1.png"),
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: IconButton(onPressed: (){}, icon: Image.asset("images/icons/x.png"))),)
+                ],
+              ),
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                label:Text(
-                  "Project Name",
-                  style: TextStyle(
-                    color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.only(top:8.0),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  label:Text(
+                    "Project name",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
             ),
             const TextField(
-              maxLines: 12,
+              maxLines: 8,
               decoration: InputDecoration(
                 label: Text(
                   "Description",
