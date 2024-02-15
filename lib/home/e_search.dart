@@ -1,8 +1,5 @@
 import 'package:e_learning/home/section.dart';
 import "package:flutter/material.dart";
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
-
-import '../rolling_switch.dart';
 
 class EmptSearch extends StatefulWidget {
   const EmptSearch({super.key});

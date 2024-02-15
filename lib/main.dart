@@ -4,9 +4,9 @@ import 'package:e_learning/forgotten/reset_pass.dart';
 import 'package:e_learning/home/frame.dart';
 import 'package:e_learning/teacher/payment.dart';
 import 'package:e_learning/course/details.dart';
-
-void main() {
-  runApp(const MyApp());
+import 'package:flutter/widgets.dart';
+void main() async {
+  return runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -1,9 +1,12 @@
+import "dart:convert";
+
 import "package:flutter/material.dart";
+import "package:http/http.dart" as http;
 import "package:e_learning/home/section.dart";
 
 
 class Saved extends StatefulWidget{
-  bool empty = false;
+  bool empty = true;
   @override 
   _SavedState createState() => _SavedState();
 }
@@ -57,7 +60,24 @@ class Empty extends StatelessWidget{
           ),
           Padding(
             padding: const EdgeInsets.only(top:50),
-            child: GreyButton(text: "Recommended", effect: (){},)
+            child: GreyButton(text: "Recommended", effect: ()async{
+              final uri = Uri.parse("https://web-production-b2f4.up.railway.app/store");
+              final http.Client client = http.Client();
+              try {
+                final response = await client.get(
+                  uri,
+                  headers: {
+                    'content-type': 'Application/json',
+                    'Accept': 'Application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'X-Requested-With': 'XMLHttpRequest'
+                  },
+                );
+                print(jsonDecode(response.body));
+              } catch(e) {
+
+              }
+            },)
           ), 
             
         ],

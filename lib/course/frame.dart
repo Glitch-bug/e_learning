@@ -1,6 +1,13 @@
+import "dart:async";
+import "dart:convert";
+import "dart:io";
+
 import "package:flutter/material.dart";
+
 import "package:e_learning/home/section.dart";
 import "package:e_learning/course/replies.dart";
+import "package:http/http.dart" as http;
+import "package:http/http.dart";
 
 class CourseFrame extends StatefulWidget{
   int index = 0;
@@ -43,7 +50,20 @@ class _CourseFrameState extends State<CourseFrame> {
                         fontWeight: FontWeight.w500,
                       )
                     ),
-                    Image.asset("images/icons/Bookmark.png")
+                    GestureDetector(
+                      child: Image.asset("images/icons/Bookmark.png"),
+                      onTap: ()async {
+                        try {
+                          aMethodThatMightFail();
+                        } catch (exception) {
+                          print("bob");
+                        //   await Sentry.captureException(
+                        //     exception,
+                        //     stackTrace: stackTrace,
+                        //   );
+                        }
+                      }
+                    )
                   ],
                   
                 ),
@@ -202,6 +222,11 @@ class _CourseFrameState extends State<CourseFrame> {
     );
   }
 
+}
+
+void aMethodThatMightFail() {
+  print("click");
+  throw TimeoutException("Haha I was never meant to work");
 }
 
 class Overview extends StatelessWidget{
@@ -439,7 +464,16 @@ class Overview extends StatelessWidget{
                     fontWeight: FontWeight.w500,
                   )
                 ),
-                GreyButton(text: "Add comment", effect: (){})
+                GreyButton(text: "Add comment", effect: ()async {
+                   Map<String, String> headers = {"Content-type": "application/json", HttpHeaders.authorizationHeader: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNeUZpdGEiLCJpc3MiOiJTeXNfQWRtaW4iLCJleHAiOjE4MjQzMDczMzl9.PkQ8rDloMwDu3laJoq6k7cE7K14pyhFVMupdBRGGp5o"};
+                  Response a = await http.post(
+                    Uri.parse("https://dev.api.myfitta.com/configs/services/all"),
+                    body: jsonEncode({"message":"From here to there", "phone":"0555598580"}),
+                    headers: headers,
+                  );
+
+                  print(jsonDecode(a.body));
+                })
               ]
             ),
           ),

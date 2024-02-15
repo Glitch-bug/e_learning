@@ -60,6 +60,7 @@ class Section extends StatelessWidget{
                 onTap:
                 (loc != null)?
                 (){
+                  
                   Navigator.push(context, MaterialPageRoute(
                     builder: (BuildContext context){
                       return loc!;

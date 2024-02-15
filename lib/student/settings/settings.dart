@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:e_learning/home/section.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:e_learning/student/settings/profile.dart';
 import 'package:e_learning/student/settings/password.dart';
 
@@ -177,20 +176,6 @@ class _SettingsState extends State<Settings> {
                       ),   
                     ],
                   ),
-                  FlutterSwitch(
-                    width: 55.0,
-                    height: 35.0,
-                    activeColor: const Color(0xff7DB86E),
-                    showOnOff: true,
-                    activeText: "",
-                    inactiveText: "",
-                    onToggle: (val) {
-                    setState(() {
-                      tog = val;
-                    });
-                    },
-                    value: tog,
-                  )  
                 ],
                 ),
             ),

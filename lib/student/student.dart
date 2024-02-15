@@ -14,7 +14,7 @@ class Student extends StatefulWidget{
 }
 
 class _StudentState extends State<Student>{
-  bool owner = false;
+  bool owner = true;
   @override 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;  
